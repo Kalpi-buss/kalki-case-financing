@@ -28,7 +28,7 @@ A starting skeleton in the Scaffold Stellar layout:
 | `spike/` | The funder test, done before the sprint and not billed: a contract funded a Trustless Work v2 escrow and got a disputed step back, less exactly 0.3%. See [spike/README.md](spike/README.md) |
 | `.github/workflows/ci.yml` | Format check and `cargo test` on every push and pull request |
 
-The case funding contract is a stub. Its one test has not yet run on a machine with Rust; CI runs it on every push once GitHub Actions is available on this account.
+The case funding contract is a stub. Its one test passes locally (`cargo test --workspace`, soroban-sdk 29.0.1); CI runs it on every push once GitHub Actions is available on this account.
 
 Nothing built before the sprint is part of it, and no other code is copied in.
 
