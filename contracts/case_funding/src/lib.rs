@@ -3,7 +3,7 @@
 //!
 //! Starting skeleton only. The sprint adds: backers deposit test USDC and their
 //! balances are recorded, the contract funds the case's step escrow, and a recovery
-//! is paid out to backers in a fixed order set before the case is financed.
+//! is paid out to backers in proportion, on terms set before the case is financed.
 
 use soroban_sdk::{contract, contractimpl, Env};
 
