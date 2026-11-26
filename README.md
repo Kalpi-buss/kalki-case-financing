@@ -25,7 +25,10 @@ A starting skeleton in the Scaffold Stellar layout:
 | `environments.toml` | Local and testnet network settings. No mainnet |
 | `packages/` | Empty: generated contract clients go here |
 | `src/` | Empty: the web app goes here |
+| `spike/` | Short testnet experiments, kept apart from the product code |
 | `.github/workflows/ci.yml` | Format check and `cargo test` on every push and pull request |
+
+The backer pool contract is a stub. Its one test has not yet run on a machine with Rust; CI runs it on every push once GitHub Actions is available on this account.
 
 Nothing built before the sprint is part of it, and no other code is copied in.
 
