@@ -10,7 +10,7 @@ Can a Soroban contract (the future backer pool) be the funder of a Trustless Wor
 
 - The spike contract funded the escrow with 100 TUSDC from its own balance. The escrow's `tw_fund` event records the contract address as `funder`.
 - Step 1 (40 TUSDC) was disputed and resolved with the whole step paid to the spike contract. The contract's balance went from 0 to **39.88 TUSDC (398,800,000 base units)**: exactly 40 less 0.3% (0.12 to the Trustless Work fee address). Platform fee was set to 0.
-- Step 2 (60 TUSDC) was released the normal way after 2 of 3 approvers approved; the receiver got 59.82 (60 less 0.3%). A release tried before the approvals was refused (`ReleaseError::EscrowNotCompleted`, #7).
+- Step 2 (60 TUSDC) was released the normal way after 2 of 3 approvers approved; the receiver got 59.82 (60 less 0.3%). A release tried before the approvals was refused by the escrow (`ReleaseError::EscrowNotCompleted`, #7); that failed attempt was not saved, so it is not part of the evidence here.
 - Everything was done with the **Stellar CLI alone**, no REST API and no API key.
 
 ## How the contract funds the escrow
