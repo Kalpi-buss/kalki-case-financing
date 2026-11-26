@@ -8,11 +8,11 @@
 use soroban_sdk::{contract, contractimpl, Env};
 
 #[contract]
-pub struct BackerPool;
+pub struct CaseFunding;
 
 #[contractimpl]
-impl BackerPool {
-    /// Version of the pool interface. 0 means skeleton: no deposits, no payouts.
+impl CaseFunding {
+    /// Version of the contract interface. 0 means skeleton: no deposits, no payouts.
     pub fn version(_env: Env) -> u32 {
         0
     }

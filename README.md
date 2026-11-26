@@ -2,7 +2,7 @@
 
 Backers finance one US court case, step by step, on the Stellar test network.
 
-**Status: starting skeleton.** Nothing here moves money. Testnet and test USDC only.
+**Status: starting skeleton.** Nothing here moves money. Testnet and test USDC only. Nothing built before 1 December 2026 is billed to the sprint.
 
 ## What case financing is
 
@@ -21,11 +21,11 @@ A starting skeleton in the Scaffold Stellar layout:
 
 | Path | What it holds |
 |---|---|
-| `contracts/backer_pool` | The case funding contract: an empty interface (`version()` returns 0) and one test |
+| `contracts/case_funding` | The case funding contract: an empty interface (`version()` returns 0) and one test |
 | `environments.toml` | Local and testnet network settings. No mainnet |
-| `packages/` | Empty: generated contract clients go here |
+| `packages/client` | Placeholder: the TypeScript client is built and published to npm during the sprint |
 | `src/` | Empty: the web app goes here |
-| `spike/` | Short testnet experiments, kept apart from the product code |
+| `spike/` | The funder test, done before the sprint and not billed: a contract funded a Trustless Work v2 escrow and got a disputed step back, less exactly 0.3%. See [spike/README.md](spike/README.md) |
 | `.github/workflows/ci.yml` | Format check and `cargo test` on every push and pull request |
 
 The case funding contract is a stub. Its one test has not yet run on a machine with Rust; CI runs it on every push once GitHub Actions is available on this account.
