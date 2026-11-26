@@ -1,5 +1,7 @@
 # Kalki case financing
 
+[![CI](https://github.com/Kalpi-buss/kalki-case-financing/actions/workflows/ci.yml/badge.svg)](https://github.com/Kalpi-buss/kalki-case-financing/actions/workflows/ci.yml)
+
 Backers finance one US court case, step by step, on the Stellar test network.
 
 **Status: starting skeleton.** Nothing here moves money. Testnet and test USDC only. Nothing built before 1 December 2026 is billed to the sprint.
@@ -28,7 +30,7 @@ A starting skeleton in the Scaffold Stellar layout:
 | `spike/` | The funder test, done before the sprint and not billed. See [spike/README.md](spike/README.md) |
 | `.github/workflows/ci.yml` | Format check and `cargo test` on every push and pull request |
 
-The case funding contract is a stub. Its one test passes locally (`cargo test --workspace`, soroban-sdk 29.0.1); CI runs it on every push once GitHub Actions is available on this account.
+The case funding contract is a stub. Its one test passes in CI on every push (format check and `cargo test --workspace`, soroban-sdk 29.0.1).
 
 Nothing built before the sprint is part of it, and no other code is copied in. The sprint's pinned escrow WASM hash and the hour log `HOURS.md` are added on 1 December 2026.
 
