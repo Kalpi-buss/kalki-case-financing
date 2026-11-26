@@ -18,3 +18,5 @@ jobs:
         run: cargo fmt --all --check
       - name: Test
         run: cargo test --workspace
+      - name: Spike test (contract funds the pinned Trustless Work escrow)
+        run: cargo test --manifest-path spike/Cargo.toml

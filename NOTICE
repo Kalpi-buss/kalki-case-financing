@@ -1,0 +1,7 @@
+Kalki case financing
+
+spike/wasm/tw_escrow_multi_release_develop_v2.wasm is Trustless Work's multi-release escrow,
+built unchanged from https://github.com/Trustless-Work/trustlesswork-smart-contract-stellar
+(branch multi-release-develop-v2, commit 3c52edde586f561b77221ef715ae1f7a41f3f090).
+It is Trustless Work's code and is not covered by this repository's Apache-2.0 licence.
+It is included only so the spike test can run against the exact escrow used on testnet.
