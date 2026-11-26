@@ -48,7 +48,7 @@ Details, all transactions and saved copies of them: [spike/README.md](spike/READ
 
 1. **Step escrow on Trustless Work.** One multi-release escrow (v2) per case, one release per step, on testnet.
 2. **Case funding contract.** Deposits of test USDC, each backer's balance, funding of the step escrow, and payout of a recovery to backers in proportion. Unit tests for every path.
-3. **Court-entry approval with an outside signer.** A step is approved by 2 of 3 signers against a named court entry; one signer is always outside the team.
+3. **Court-entry approval with an outside signer.** A step is approved by 2 of 3 signers against a named court entry and released only by the outside signer or the named backup, both outside the team.
 4. **Web app and test withdrawal.** A backer's view of the case, its steps and their approvals, and a test withdrawal through Stellar's test anchor.
 
 ## Run it
