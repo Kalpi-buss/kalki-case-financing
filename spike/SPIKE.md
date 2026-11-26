@@ -23,7 +23,7 @@ Can a Soroban contract (the future case funding contract) fund a Trustless Work 
 The refund needs nothing special: the resolver's distribution map names the contract address and the token transfers to it. Contract addresses hold Stellar Asset Contract balances without a trustline.
 
 ## Route chosen
-Self-deploy from source. The Trustless Work REST API needs an API key only the owner can create, and it builds transactions for a wallet signer; a contract funder calls the escrow from its own code, so the API is not needed for funding.
+Self-deploy from source. The Trustless Work REST API needs an API key only the owner can create, and it builds transactions for a wallet signer; a funding contract calls the escrow from its own code, so the API is not needed for funding.
 
 - Source: `github.com/Trustless-Work/trustlesswork-smart-contract-stellar`
 - Built from branch **`multi-release-develop-v2`**, commit `3c52edde586f561b77221ef715ae1f7a41f3f090` (24 Nov 2026), with `stellar contract build` (Stellar CLI 30.0.1, Rust 1.100.0, soroban-sdk 29.0.1). Unmodified.
