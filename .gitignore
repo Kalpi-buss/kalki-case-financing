@@ -1,0 +1,10 @@
+target/
+node_modules/
+dist/
+.env
+.env.*
+*.pem
+*.key
+.stellar/
+.DS_Store
+._*

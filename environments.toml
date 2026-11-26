@@ -1,0 +1,9 @@
+# Networks this project uses. Testnet only: no mainnet entry, no real money.
+[development.network]
+rpc-url = "http://localhost:8000/rpc"
+network-passphrase = "Standalone Network ; February 2017"
+run-locally = true
+
+[testing.network]
+rpc-url = "https://soroban-testnet.stellar.org"
+network-passphrase = "Test SDF Network ; September 2015"

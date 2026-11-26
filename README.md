@@ -1,0 +1,49 @@
+# Kalki case financing
+
+Backers finance one US court case, step by step, on the Stellar test network.
+
+**Status: starting skeleton.** Nothing here moves money. Testnet and test USDC only.
+
+## What case financing is
+
+- **One case, many backers.** Backers pool test USDC to pay the legal costs of one US court case.
+- **Step escrow.** The case budget is split into steps. The money for each step is held in a
+  [Trustless Work](https://www.trustlesswork.com/) multi-release escrow (v2) on Stellar testnet.
+- **Court entry approval.** A step is released only when its court entry is in the public court record
+  and 2 of 3 signers approve it. One of the three signers is always outside the team.
+- **Backer pool contract.** One new Soroban contract records each backer's share and pays a recovery
+  (a win or settlement) in a fixed order, set before the case is financed.
+- **Testnet only.** Test USDC on Stellar testnet. No real money, no mainnet deployment.
+
+## What exists today
+
+A starting skeleton in the Scaffold Stellar layout:
+
+| Path | What it holds |
+|---|---|
+| `contracts/backer_pool` | The backer pool contract: an empty interface (`version()` returns 0) and one test |
+| `environments.toml` | Local and testnet network settings. No mainnet |
+| `packages/` | Empty: generated contract clients go here |
+| `src/` | Empty: the web app goes here |
+| `.github/workflows/ci.yml` | Format check and `cargo test` on every push and pull request |
+
+Nothing built before the sprint is part of it, and no other code is copied in.
+
+## What the 30-day sprint adds
+
+1. **Step escrow on Trustless Work.** One multi-release escrow (v2) per case, one release per step, on testnet.
+2. **Backer pool contract.** Deposits of test USDC, shares per backer, funding of the step escrow, and payout of a recovery in a fixed order. Unit tests for every path.
+3. **Court-entry approval with an outside signer.** A step is approved by 2 of 3 signers against a named court entry; one signer is always outside the team.
+4. **Web app and test withdrawal.** A backer's view of the case, its steps and their approvals, and a test withdrawal through Stellar's test anchor.
+
+## Run it
+
+Needs Rust (stable) and, for contract builds, the [Stellar CLI](https://developers.stellar.org/docs/tools/cli).
+
+```bash
+cargo test --workspace
+```
+
+## Licence
+
+Apache-2.0. See `LICENSE`.
