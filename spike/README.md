@@ -13,4 +13,5 @@ A small Soroban contract (`src/`) funded a Trustless Work multi-release v2 escro
 - Full write-up, all 16 transactions, contract IDs and the escrow's WASM hash: [SPIKE.md](SPIKE.md).
 - Stellar testnet is reset from time to time, which clears its history. A saved copy of every transaction (hash, ledger, envelope, result and result meta) is in [testnet/transactions/](testnet/transactions/), with an index in `index.json`.
 - `src/`: the funder contract and its local test (`cargo test` in this folder, against the real escrow WASM in `wasm/`).
+- `wasm/tw_escrow_multi_release_develop_v2.wasm`: Trustless Work's own escrow, built unmodified from their open-source code (branch `multi-release-develop-v2`, commit `3c52edde586f561b77221ef715ae1f7a41f3f090`) with `stellar contract build`. Its SHA-256, `e04b78f5bde774b228f8590a9bac95ed469c8d99d70185cb8201a379adb77b1a`, is the WASM hash deployed on testnet. It is kept so the test runs against the exact escrow used.
 - `testnet/run.sh`: the Stellar CLI commands used. Keys are local aliases only; no key is in this repository.
