@@ -1,9 +1,9 @@
-# Spike: a contract as funder of a Trustless Work multi-release v2 escrow
+# Spike: a contract funding a Trustless Work multi-release v2 escrow
 
 Work done before the sprint, on 26 Nov 2026. Not billed. Stellar testnet only, test token only.
 
 ## Question
-Can a Soroban contract (the future backer pool) be the funder of a Trustless Work multi-release v2 escrow, and can a dispute resolution pay a missed step back to that contract's address?
+Can a Soroban contract (the future case funding contract) fund a Trustless Work multi-release v2 escrow, and can a dispute resolution pay a missed step back to that contract's address?
 
 ## Answer
 **Yes to both, on public testnet transactions.**
@@ -39,7 +39,7 @@ Self-deploy from source. The Trustless Work REST API needs an API key only the o
 | What | ID |
 |---|---|
 | Trustless Work escrow (from source) | [`CCFN7SLXWITEMK7VBY2DIB6UHMEOJFEOCGT42SLFR4L46NRI5PDAKWSH`](https://stellar.expert/explorer/testnet/contract/CCFN7SLXWITEMK7VBY2DIB6UHMEOJFEOCGT42SLFR4L46NRI5PDAKWSH) |
-| Funder spike contract | [`CCFMJWVEDTQNHS3GJUZ4LCO77BROBHNKWJ3L7XZPBKRTOJWPUADFQZLR`](https://stellar.expert/explorer/testnet/contract/CCFMJWVEDTQNHS3GJUZ4LCO77BROBHNKWJ3L7XZPBKRTOJWPUADFQZLR) |
+| Funding spike contract | [`CCFMJWVEDTQNHS3GJUZ4LCO77BROBHNKWJ3L7XZPBKRTOJWPUADFQZLR`](https://stellar.expert/explorer/testnet/contract/CCFMJWVEDTQNHS3GJUZ4LCO77BROBHNKWJ3L7XZPBKRTOJWPUADFQZLR) |
 | TUSDC token contract | [`CAPXXPGX5C63TEAVTGFOJPQ6ZTU2GEPFWKMNBNKXUVDBDNKAXDSW6NGN`](https://stellar.expert/explorer/testnet/contract/CAPXXPGX5C63TEAVTGFOJPQ6ZTU2GEPFWKMNBNKXUVDBDNKAXDSW6NGN) |
 
 ## Roles (team test keys, public addresses)
@@ -109,7 +109,7 @@ Not tested: creating the escrow through Trustless Work's own deployed v2 factory
 5. Still beta and not externally audited (as the SOW already says). On the develop branch the resolver or release signer chooses the fee address, which is a testnet convenience only.
 
 ## Files
-- `spike/src/lib.rs`: the funder contract (owner-gated `fund`, `balance`).
+- `spike/src/lib.rs`: the funding contract (owner-gated `fund`, `balance`).
 - `spike/src/test.rs`: the same flow run locally against the real escrow WASM (`cargo test`), with only the owner's signature mocked on `fund`.
 - `spike/wasm/tw_escrow_multi_release_develop_v2.wasm`: the escrow build used.
 - `spike/testnet/`: `run.sh` (the CLI run), `escrow.json` (escrow properties), `stored_escrow.json` and `final_escrow.json` (escrow state before funding and at the end).

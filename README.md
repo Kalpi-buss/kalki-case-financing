@@ -27,7 +27,7 @@ A starting skeleton in the Scaffold Stellar layout:
 | `environments.toml` | Local and testnet network settings. No mainnet |
 | `packages/client` | Placeholder: the TypeScript client is built and published to npm during the sprint |
 | `src/` | Empty: the web app goes here |
-| `spike/` | The funder test, done before the sprint and not billed. See [spike/README.md](spike/README.md) |
+| `spike/` | The escrow funding test, done before the sprint and not billed. See [spike/README.md](spike/README.md) |
 | `.github/workflows/ci.yml` | Format check and `cargo test` on every push and pull request |
 
 The case funding contract is a stub. Its one test passes in CI on every push (format check and `cargo test --workspace`, soroban-sdk 29.0.1).
