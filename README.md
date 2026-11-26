@@ -11,10 +11,10 @@ Backers finance one US court case, step by step, on the Stellar test network.
 - **One case, many backers.** Backers put in test USDC to pay the legal costs of one US court case.
 - **Step escrow.** The case budget is split into steps. The money for each step is held in a
   [Trustless Work](https://www.trustlesswork.com/) multi-release escrow (v2) on Stellar testnet.
-- **Court entry approval.** A step is released only when its court entry is in the public court record
-  and 2 of 3 signers approve it. One of the three signers is always outside the team.
-- **Case funding contract.** One new Soroban contract records what each backer put in and pays a recovery
-  (a win or settlement) in a fixed order, set before the case is financed. Nothing is issued, traded or transferred.
+- **Court entry approval.** A step is released only when its court entry is in the public court record,
+  2 of 3 signers approve it, and an outside person (the outside signer or a named outside backup) releases it. The team can approve but never release.
+- **Case funding contract.** One new Soroban contract records what each backer put in and repays backers in proportion
+  from the backers' part of a recovery (a win or settlement), on terms set before the case is financed. Nothing is issued, traded or transferred.
 - **Testnet only.** Test USDC on Stellar testnet. No real money, no mainnet deployment.
 
 ## What exists today
@@ -47,7 +47,7 @@ Details, all transactions and saved copies of them: [spike/README.md](spike/READ
 ## What the 30-day sprint adds
 
 1. **Step escrow on Trustless Work.** One multi-release escrow (v2) per case, one release per step, on testnet.
-2. **Case funding contract.** Deposits of test USDC, each backer's balance, funding of the step escrow, and payout of a recovery in a fixed order. Unit tests for every path.
+2. **Case funding contract.** Deposits of test USDC, each backer's balance, funding of the step escrow, and payout of a recovery to backers in proportion. Unit tests for every path.
 3. **Court-entry approval with an outside signer.** A step is approved by 2 of 3 signers against a named court entry; one signer is always outside the team.
 4. **Web app and test withdrawal.** A backer's view of the case, its steps and their approvals, and a test withdrawal through Stellar's test anchor.
 
