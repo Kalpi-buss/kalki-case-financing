@@ -1,0 +1,130 @@
+[
+ {
+  "n": 1,
+  "what": "Trustline: receiver",
+  "hash": "541f60c32d72261ccfd16f40b6befbf037e3609895943d450dccf4839f970c83",
+  "ledger": 5931095,
+  "successful": true,
+  "file": "01-trustline-receiver.json"
+ },
+ {
+  "n": 2,
+  "what": "Trustline: fee account",
+  "hash": "0a94c83e249f92865cdfab732e8e4ecc01513d44ef043b749ea3cd23e1e29d04",
+  "ledger": 5931096,
+  "successful": true,
+  "file": "02-trustline-fee-account.json"
+ },
+ {
+  "n": 3,
+  "what": "Trustline: platform",
+  "hash": "99fa3ede0ebcda3f3f8fe7b1bf4447cfd4b904cc5db360cda84d5829bd84c6a7",
+  "ledger": 5931097,
+  "successful": true,
+  "file": "03-trustline-platform.json"
+ },
+ {
+  "n": 4,
+  "what": "Deploy TUSDC token contract",
+  "hash": "e5b8b586633256f86f26ba9c60cd0d0acbae420848a9ad98d814425357349868",
+  "ledger": 5931099,
+  "successful": true,
+  "file": "04-deploy-tusdc-token-contract.json"
+ },
+ {
+  "n": 5,
+  "what": "Upload escrow WASM",
+  "hash": "b898082d4d686e6e4e1aab094315be4a2de7ff5d942826a1bb958aaa6806fa15",
+  "ledger": 5931104,
+  "successful": true,
+  "file": "05-upload-escrow-wasm.json"
+ },
+ {
+  "n": 6,
+  "what": "Deploy escrow",
+  "hash": "bfc1c6e4f68f2474a59b8ea435bb60aa086924d3bac932a6fbfaeecfb48658ed",
+  "ledger": 5931105,
+  "successful": true,
+  "file": "06-deploy-escrow.json"
+ },
+ {
+  "n": 7,
+  "what": "Upload spike WASM",
+  "hash": "17b268a507ad5f641d24fcd4248a820307c2797eb63a88470d886b84654b33a9",
+  "ledger": 5931106,
+  "successful": true,
+  "file": "07-upload-spike-wasm.json"
+ },
+ {
+  "n": 8,
+  "what": "Deploy spike",
+  "hash": "24ea92fe9cba5924f4c2bc9930f17a7338b299957e6afab8baa95dd3be5aa694",
+  "ledger": 5931107,
+  "successful": true,
+  "file": "08-deploy-spike.json"
+ },
+ {
+  "n": 9,
+  "what": "initialize_escrow (admin)",
+  "hash": "c201e71ed5c7b8ff911ef8afd56b19319326577f03abca7aa04e200e2d22a7c9",
+  "ledger": 5931113,
+  "successful": true,
+  "file": "09-initialize-escrow-admin.json"
+ },
+ {
+  "n": 10,
+  "what": "Mint 100 TUSDC to the spike",
+  "hash": "8c138d03203ea692d08fa73a677879df02f4481db256c47b506464096bba0d84",
+  "ledger": 5931114,
+  "successful": true,
+  "file": "10-mint-100-tusdc-to-the-spike.json"
+ },
+ {
+  "n": 11,
+  "what": "Spike funds escrow (100 TUSDC)",
+  "hash": "5d98a6d9f45b5f770fdd464e9d51c566de50e81119681a8dc5290815432d8b10",
+  "ledger": 5931118,
+  "successful": true,
+  "file": "11-spike-funds-escrow-100-tusdc.json"
+ },
+ {
+  "n": 12,
+  "what": "Dispute step 1 (approver)",
+  "hash": "8f41f32aca741f3d897cab2c4d16b1a9647f7dc04f5a1a5cff26907c38820daa",
+  "ledger": 5931121,
+  "successful": true,
+  "file": "12-dispute-step-1-approver.json"
+ },
+ {
+  "n": 13,
+  "what": "Resolve step 1 to the spike (39.88 back)",
+  "hash": "3ab39d9889d2a9dbb0d423b8fef1ee225e8c80213fc51e911048d12d59729099",
+  "ledger": 5931122,
+  "successful": true,
+  "file": "13-resolve-step-1-to-the-spike-39-88-back.json"
+ },
+ {
+  "n": 14,
+  "what": "Approve step 2 (approver 1)",
+  "hash": "6ca98c8d17e35c5c3b6b635c620b097a143e8fd674cbd9a9120fb144bd8cd5a8",
+  "ledger": 5931126,
+  "successful": true,
+  "file": "14-approve-step-2-approver-1.json"
+ },
+ {
+  "n": 15,
+  "what": "Approve step 2 (approver 2)",
+  "hash": "f51c0e02d514a1227feb6c89d1f6c65eddfe6e41bab50f2c5a03cded472032c3",
+  "ledger": 5931127,
+  "successful": true,
+  "file": "15-approve-step-2-approver-2.json"
+ },
+ {
+  "n": 16,
+  "what": "Release step 2 (signer 3)",
+  "hash": "0fe098d3cf499768d2f73f9b0b2853d26f846c797a5a218fe4a4ef98737b0847",
+  "ledger": 5931128,
+  "successful": true,
+  "file": "16-release-step-2-signer-3.json"
+ }
+]

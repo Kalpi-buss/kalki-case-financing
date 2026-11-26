@@ -2,7 +2,7 @@
 
 Backers finance one US court case, step by step, on the Stellar test network.
 
-**Status: starting skeleton.** Nothing here moves money. Testnet and test USDC only.
+**Status: starting skeleton.** Nothing here moves money. Testnet and test USDC only. Nothing built before 1 December 2026 is billed to the sprint.
 
 ## What case financing is
 
@@ -21,16 +21,26 @@ A starting skeleton in the Scaffold Stellar layout:
 
 | Path | What it holds |
 |---|---|
-| `contracts/backer_pool` | The case funding contract: an empty interface (`version()` returns 0) and one test |
+| `contracts/case_funding` | The case funding contract: an empty interface (`version()` returns 0) and one test |
 | `environments.toml` | Local and testnet network settings. No mainnet |
-| `packages/` | Empty: generated contract clients go here |
+| `packages/client` | Placeholder: the TypeScript client is built and published to npm during the sprint |
 | `src/` | Empty: the web app goes here |
-| `spike/` | Short testnet experiments, kept apart from the product code |
+| `spike/` | The funder test, done before the sprint and not billed. See [spike/README.md](spike/README.md) |
 | `.github/workflows/ci.yml` | Format check and `cargo test` on every push and pull request |
 
-The case funding contract is a stub. Its one test has not yet run on a machine with Rust; CI runs it on every push once GitHub Actions is available on this account.
+The case funding contract is a stub. Its one test passes locally (`cargo test --workspace`, soroban-sdk 29.0.1); CI runs it on every push once GitHub Actions is available on this account.
 
-Nothing built before the sprint is part of it, and no other code is copied in.
+Nothing built before the sprint is part of it, and no other code is copied in. The sprint's pinned escrow WASM hash and the hour log `HOURS.md` are added on 1 December 2026.
+
+## Tested before the sprint (not billed)
+
+On 26 November 2026 a small contract funded a Trustless Work multi-release v2 escrow on Stellar testnet and got a disputed step back, less exactly 0.3%:
+
+- Funding by a contract: https://stellar.expert/explorer/testnet/tx/5d98a6d9f45b5f770fdd464e9d51c566de50e81119681a8dc5290815432d8b10
+- Release after 2 of 3 approvals: https://stellar.expert/explorer/testnet/tx/0fe098d3cf499768d2f73f9b0b2853d26f846c797a5a218fe4a4ef98737b0847
+- Disputed 40 TUSDC step returned as 39.88: https://stellar.expert/explorer/testnet/tx/3ab39d9889d2a9dbb0d423b8fef1ee225e8c80213fc51e911048d12d59729099
+
+Details, all transactions and saved copies of them: [spike/README.md](spike/README.md).
 
 ## What the 30-day sprint adds
 
