@@ -1,9 +1,9 @@
 #![no_std]
-//! Backer pool: one pool per financed court case.
+//! Case funding contract: one per financed court case.
 //!
-//! Starting skeleton only. The sprint adds: backers deposit test USDC and receive
-//! shares, the pool funds the case's step escrow, and a recovery is paid out to
-//! share holders in a fixed order set before the case is financed.
+//! Starting skeleton only. The sprint adds: backers deposit test USDC and their
+//! balances are recorded, the contract funds the case's step escrow, and a recovery
+//! is paid out to backers in a fixed order set before the case is financed.
 
 use soroban_sdk::{contract, contractimpl, Env};
 
