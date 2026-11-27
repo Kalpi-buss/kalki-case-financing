@@ -7,7 +7,7 @@ The detail behind the Instawards SOW for Kalki Case Finance. Testnet and Circle'
 - **Version and pin.** Built unchanged from Trustless Work's open-source code, branch `multi-release-develop-v2`, commit `3c52edde586f561b77221ef715ae1f7a41f3f090`, with the Stellar CLI. WASM hash `e04b78f5bde774b228f8590a9bac95ed469c8d99d70185cb8201a379adb77b1a` (see [spike/SPIKE.md](../spike/SPIKE.md)). Version 2 is in Beta, testnet only, and has no outside audit; Trustless Work's audited code is version 1.
 - **Fee.** The escrow code deducts 0.3% on every release and every refund. On this branch the fee goes to an address passed in each call; in the sprint that is a team test account. The escrow's own platform fee is 0.
 - **Approvals.** Three approvers: the outside signer and exactly two team signers. `approvals.target = 2`. Two release signers: the outside signer and the named backup. Two team approvals plus a release by either outside release signer are enough; the outside signer's own approval is not required. The team can approve but cannot release.
-- **Outside people.** Two outside people cover three outside roles: the outside signer (Bhawna Singh, an independent practising lawyer in India) and the named backup (named in Week 1). Both hold an outside key on both multisigs. Neither backs the case. Each is not employed by, paid by or invested in Kalki, is not the Ambassador Chapter Lead or a chapter member, and is not related to a team member. If either cannot sign by 18 December, a replacement meeting the same test is named and its key published.
+- **Outside people.** Two outside people: the outside signer (Bhawna Singh, an independent practising lawyer in India) and the named backup (named by 4 December). Both hold an outside key on both multisigs. Neither backs the case. Each is not employed by, paid by or invested in Kalki, is not the Ambassador Chapter Lead or a chapter member, and is not related to a team member. If either cannot sign by 18 December, a replacement meeting the same test is named and its key published.
 - **Refund path.** A milestone has no deadline field, so each step's deadline is in the rules file. After it, a signer opens a dispute and the dispute resolver returns the step to the case funding contract, less the fee. The refund recipient is chosen by the caller, so an outside key and one team key could send an unreleased step anywhere. Both outside people confirm in writing they sign only refunds to the case funding contract, and every dispute and resolution is in the public evidence table. By rule the resolver resolves one step per call (the escrow accepts several). The same resolver can call `withdraw_remaining_funds` once every step is released or resolved; the same written confirmation covers it.
 - **Multisig accounts.** The dispute resolver and the admin are two separate classic accounts. On each: master key weight 0, each of the two outside people's keys weight 2, each of exactly two team keys weight 1, every threshold 3. So either outside key plus any team key passes, and the two outside keys together also pass; two team keys, or one outside key alone, fail. Losing one outside key blocks nothing. After funding, the escrow lets the admin only add milestones and extend storage life; roles, amounts and existing milestones are fixed. The escrow does not stop the admin adding milestones, so this admin multisig, which needs the outside key, adds none after funding, and a team-only attempt is refused by the multisig thresholds. At funding the admin extends the escrow's storage past the case end date. The admin multisig also holds the case funding contract's admin and pauser roles.
 - **Evidence field.** Written by the escrow's service-provider key (the law firm's test account, run by script). Before approval it holds the court, case number, entry number, entry date and a SHA-256 hash of the entry: the entry's text as shown on the court record, with whitespace normalised, plus the SHA-256 of the RECAP document when one exists. Trustless Work lets the field change after approval, so the release signer checks it again at release.
@@ -24,7 +24,16 @@ The detail behind the Instawards SOW for Kalki Case Finance. Testnet and Circle'
 - **Storage and pause.** Each deposit, record and claim extends the storage life of the entries it touches; a public extend call renews the case's storage up to the network maximum. The pause lapses 14 days after it is set and never blocks refunds or claims.
 - **No upgrade function.** A bug in the claim math cannot be fixed after deployment; the cap limits the loss.
 
-## 3. Known risks (STRIDE list)
+## 3. Court-entry approval
+
+- **Rules file.** JSON, written by hand and published at a tagged commit before listing, mapping court entries to steps, results and deadlines. Only entries the court itself writes count.
+- **Court reference.** Written to each step's evidence field by the service-provider key (see section 1) and rechecked by the release signer at release. A wrong reference cannot by itself move money: the outside release signer rechecks it with the check tool before any release.
+- **Check tool.** Open source and holds no key. It refuses a party's own filing, an entry that changes between two reads, and a reused entry; a CI test shows each refusal.
+- **Signing route.** Outside signers sign from their own wallets, with Freighter or with the Stellar CLI from a signing guide in this repository. Multisig transactions are built unsigned and co-signed, with a signing rehearsal in Week 2.
+- **Replay.** One past, already decided US federal case from CourtListener's RECAP archive, run end to end on testnet. An event export script saves this project's contract events for the follow page; no hosted indexer.
+- **No software approves, releases or records a result.** Every approval is a named person's signature.
+
+## 4. Known risks (STRIDE list)
 
 1. The escrow is Beta and not externally audited.
 2. The refund recipient is enforced by a written promise, not by the escrow.
@@ -34,6 +43,6 @@ The detail behind the Instawards SOW for Kalki Case Finance. Testnet and Circle'
 6. No upgrade function.
 7. Testnet resets clear history; every cited transaction is saved in the repository as it is made, and the scripts redeploy within a day.
 8. Any approver, release signer, the service provider, the platform account or a step's receiver can dispute an unreleased step early; a disputed step can then only be refunded, never released, and only with the outside key (tested).
-9. A recovery is paid in only if the law firm sends it; a real case needs a signed funding agreement off chain before any real money.
+9. A recovery is paid in only if the law firm sends it; a real case needs a signed agreement with the law firm for paying in the backers' part of a recovery before any real money.
 
 Each threat gets one test or one documented control, listed here as it is written during the sprint.
